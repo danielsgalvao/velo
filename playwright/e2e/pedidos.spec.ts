@@ -19,13 +19,13 @@ test('test', async ({ page }) => {
   // Pesquisar pedido
   await page.getByTestId('search-order-id').click()
   await page.getByTestId('search-order-id').fill('VLO-22GZHG')
-  await page.getByTestId('search-order-button').click()
+  await page.getByRole('button', { name: 'Buscar Pedido' }).click()
 
   // Resultado esperado Assert
-  await expect(page.getByTestId('order-result-id')).toContainText('VLO-22GZHG')
-  await expect(page.getByTestId('order-result-id')).toBeVisible()
-  await expect(page.getByTestId('order-result-status')).toContainText('APROVADO')
-  await expect(page.getByTestId('order-result-status')).toBeVisible() 
+  await expect(page.getByText('VLO-22GZHG')).toBeVisible()
+  await expect(page.getByTestId('order-result-VLO-22GZHG')).toContainText('VLO-22GZHG')
+  await expect(page.getByText('APROVADO')).toBeVisible()
+  await expect(page.getByTestId('order-result-VLO-22GZHG')).toContainText('APROVADO')
 
 
 })
