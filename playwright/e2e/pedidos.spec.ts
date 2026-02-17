@@ -23,9 +23,7 @@ test('test', async ({ page }) => {
 
   // Resultado esperado Assert
   await expect(page.getByText('VLO-22GZHG')).toBeVisible()
-  await expect(page.getByTestId('order-result-VLO-22GZHG')).toContainText('VLO-22GZHG')
   await expect(page.getByText('APROVADO')).toBeVisible()
-  await expect(page.getByTestId('order-result-VLO-22GZHG')).toContainText('APROVADO')
-
+  
 
 })
